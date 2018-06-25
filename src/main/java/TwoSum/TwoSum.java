@@ -2,7 +2,7 @@ package TwoSum;
 
 /**
  * solution:https://leetcode-cn.com/articles/two-sum/
- *
+ * Easy
  * @author sailfish
  * @create 2018-06-21-上午10:47
  */
@@ -22,27 +22,23 @@ import java.util.Map;
 public class TwoSum {
 
     public static int[] twoSum(int[] nums, int target) {
-        int[] result = new int[2];
-        int length = nums.length;
-        for (int i = 0; i < length - 1; i++) {
-            for (int j = i + 1; j < length; j++) {
-                int sum = 0;
-                sum = nums[i] + nums[j];
-
+        for (int i = 0; i < nums.length - 1; i++) {
+            for (int j = i + 1; j < nums.length; j++) {
+                int sum = nums[i] + nums[j];
                 if (sum == target) {
-                    result[0] = i;
-                    result[1] = j;
-                    return result;
+                    return new int[]{i, j};
                 }
             }
         }
-
         throw new IllegalArgumentException("No two sum solution");
     }
 
 
     /**
      * method2
+     * array -> map
+     * key: arrayValue
+     * value: arrayIndex
      */
     public static int[] twoSum2(int[] nums, int target) {
         Map<Integer, Integer> map = new HashMap<>();
